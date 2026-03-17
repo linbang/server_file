@@ -1,0 +1,340 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.3.3",
+    "lastTouchedAt": "2026-03-13T16:32:02.405Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-03-05T03:25:27.694Z",
+    "lastRunVersion": "2026.3.3",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
+  },
+  "update": {
+    "checkOnStart": false
+  },
+  "browser": {
+    "executablePath": "/usr/bin/google-chrome",
+    "headless": true,
+    "defaultProfile": "openclaw"
+  },
+  "models": {
+    "providers": {
+      "dashscope": {
+        "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "apiKey": "$api-key",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "qwen3-max-2026-01-23",
+            "name": "Qwen3-Max-2026-01-23",
+            "api": "openai-completions",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 262144,
+            "maxTokens": 65536
+          },
+          {
+            "id": "qwen3.5-plus",
+            "name": "Qwen3.5-Plus",
+            "api": "openai-completions",
+            "reasoning": false,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 1000000,
+            "maxTokens": 65536
+          }
+        ]
+      },
+      "dashscope-us": {
+        "baseUrl": "https://dashscope-us.aliyuncs.com/compatible-mode/v1",
+        "apiKey": "$api-key",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "qwen3-max-2025-09-23",
+            "name": "qwen3-max-2025-09-23",
+            "api": "openai-completions",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 32768,
+            "maxTokens": 8192
+          },
+          {
+            "id": "qwen3-vl-plus",
+            "name": "qwen3-vl-plus",
+            "api": "openai-completions",
+            "reasoning": false,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 32768,
+            "maxTokens": 8192
+          }
+        ]
+      },
+      "dashscope-coding": {
+        "baseUrl": "https://coding.dashscope.aliyuncs.com/v1",
+        "apiKey": "sk-sp-063144635ca24513ac25332f847f1d49",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "qwen3.5-plus",
+            "name": "Qwen3.5-Plus",
+            "api": "openai-completions",
+            "reasoning": false,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 1000000,
+            "maxTokens": 65536
+          },
+          {
+            "id": "MiniMax-M2.5",
+            "name": "MiniMax-M2.5",
+            "api": "openai-completions",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 1000000,
+            "maxTokens": 65536
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "dashscope-coding/MiniMax-M2.5"
+      },
+      "imageModel": {
+        "primary": "dashscope/qwen3-vl-plus"
+      },
+      "models": {
+        "dashscope/qwen3-max-2026-01-23": {
+          "alias": "qwen3-max-2026-01-23"
+        },
+        "dashscope/qwen3.5-plus": {
+          "alias": "qwen3.5-plus"
+        },
+        "dashscope-us/qwen3-max-2025-09-23": {
+          "alias": "qwen3-max-2025-09-23"
+        },
+        "dashscope-us/qwen3-vl-plus": {
+          "alias": "qwen3-vl-plus"
+        },
+        "dashscope-coding/qwen3.5-plus": {
+          "alias": "qwen3.5-plus"
+        },
+        "dashscope-coding/MiniMax-M2.5": {
+          "alias": "minimax-m2.5"
+        }
+      },
+      "workspace": "/home/admin/.openclaw/workspace",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    }
+  },
+  "tools": {
+    "profile": "full"
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": true,
+    "nativeSkills": true,
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "cron": {
+    "enabled": true
+  },
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "boot-md": {
+          "enabled": true
+        },
+        "command-logger": {
+          "enabled": true
+        },
+        "session-memory": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  "channels": {
+    "wecom": {
+      "enabled": true,
+      "webhookPath": "/webhooks/wecom",
+      "token": "CqDJPAE6vBy",
+      "encodingAESKey": "WIjkn7TR3WnTed5tjka7aH7gc8GtSUJIyXuYBk1PW7W"
+    }
+  },
+  "gateway": {
+    "port": 15176,
+    "mode": "local",
+    "bind": "lan",
+    "controlUi": {
+      "basePath": "5cc78a49",
+      "allowedOrigins": [
+        "http://47.252.52.74:15176"
+      ],
+      "allowInsecureAuth": true,
+      "dangerouslyDisableDeviceAuth": true
+    },
+    "auth": {
+      "mode": "token",
+      "token": "36d781b04607e3555882839f426f7800"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "reload": {
+      "mode": "restart"
+    },
+    "http": {
+      "endpoints": {
+        "chatCompletions": {
+          "enabled": true
+        },
+        "responses": {
+          "enabled": true
+        }
+      }
+    },
+    "nodes": {
+      "denyCommands": [
+        "camera.snap",
+        "camera.clip",
+        "screen.record",
+        "contacts.add",
+        "calendar.add",
+        "reminders.add",
+        "sms.send"
+      ]
+    }
+  },
+  "plugins": {
+    "enabled": true,
+    "allow": [
+      "dingtalk",
+      "qqbot",
+      "dashscope-cfg",
+      "wecom"
+    ],
+    "entries": {
+      "dashscope-cfg": {
+        "enabled": true
+      },
+      "wecom": {
+        "enabled": true
+      },
+      "dingtalk": {
+        "enabled": true
+      },
+      "qqbot": {
+        "enabled": true
+      }
+    },
+    "installs": {
+      "dashscope-cfg": {
+        "source": "path",
+        "sourcePath": "/opt/openclaw/extensions/dashscope-cfg",
+        "installPath": "/home/admin/.openclaw/extensions/dashscope-cfg",
+        "version": "2026.2.25",
+        "installedAt": "2026-03-05T03:36:01.180Z"
+      },
+      "wecom": {
+        "source": "npm",
+        "spec": "@openclaw-china/wecom",
+        "installPath": "/home/admin/.openclaw/extensions/wecom",
+        "version": "2026.3.4-2",
+        "resolvedName": "@openclaw-china/wecom",
+        "resolvedVersion": "2026.3.4-2",
+        "resolvedSpec": "@openclaw-china/wecom@2026.3.4-2",
+        "integrity": "sha512-uKHkO7kPVFWLzMXRT+s/sXZyYuQX8fxC2CKes59hiV5Hw1NwJ78Tj15jlmXyDJoZ1L7keT5QAqc86rW+ayWyWw==",
+        "shasum": "005f77478b58eca287ab67d26a5d2fb1778b48d6",
+        "resolvedAt": "2026-03-05T07:19:06.171Z",
+        "installedAt": "2026-03-05T07:19:10.607Z"
+      },
+      "dingtalk": {
+        "source": "npm",
+        "spec": "@soimy/dingtalk",
+        "installPath": "/home/admin/.openclaw/extensions/dingtalk",
+        "version": "3.2.0",
+        "resolvedName": "@soimy/dingtalk",
+        "resolvedVersion": "3.2.0",
+        "resolvedSpec": "@soimy/dingtalk@3.2.0",
+        "integrity": "sha512-6JDDZit0WPy3xUC0rNQVMQEKMXcbjnN5r0/Rq44xJ3IOFceQnZVhLXgnahQsuw/03GJAxNl6FKb0PTxm1R7ZIw==",
+        "shasum": "9b32caab49d1e1c76ab41d39b15175ff76f0e112",
+        "resolvedAt": "2026-03-05T07:19:29.807Z",
+        "installedAt": "2026-03-05T07:20:05.338Z"
+      },
+      "qqbot": {
+        "source": "path",
+        "sourcePath": "/home/admin/qqbot",
+        "installPath": "/home/admin/.openclaw/extensions/qqbot",
+        "version": "1.5.1",
+        "installedAt": "2026-03-05T07:23:31.488Z"
+      }
+    }
+  }
+}
