@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>佛罗伦萨：一场跨越千年的艺术盛宴</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #8B4513;
+            --secondary: #D2691E;
+            --accent: #CD853F;
+            --gold: #FFD700;
+            --cream: #FFF8DC;
+            --text: #2C1810;
+            --light: #FAF0E6;
+        }
+        
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #1a0a00 0%, #2d1810 50%, #1a0a00 100%);
+            color: var(--text);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 70vh;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%238B4513" width="1200" height="800"/><circle cx="600" cy="400" r="300" fill="%23D2691E" opacity="0.3"/><text x="600" y="380" text-anchor="middle" font-size="80" fill="%23FFD700" font-family="serif">FIRENZE</text><text x="600" y="450" text-anchor="middle" font-size="24" fill="%23FFF8DC">艺术之都 · 文艺复兴发源地</text></svg>') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--cream);
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: 0.5em;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-indicator span {
+            display: block;
+            width: 20px;
+            height: 20px;
+            border-right: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
+            transform: rotate(45deg);
+            opacity: 0.7;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        /* Section Styles */
+        section {
+            background: var(--cream);
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--gold), var(--primary));
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        h2::before {
+            content: '🏛️';
+            font-size: 1.5rem;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin: 25px 0 15px;
+            border-left: 4px solid var(--gold);
+            padding-left: 15px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        /* Cards Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .card {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: 0 15px 40px rgba(139,69,19,0.2);
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .card h4 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin: 30px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--gold), var(--secondary));
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--light);
+            border-radius: 15px;
+        }
+        
+        .timeline-item::before {
+            content: '👑';
+            position: absolute;
+            left: -45px;
+            top: 20px;
+            font-size: 1.5rem;
+            background: var(--cream);
+            padding: 5px;
+            border-radius: 50%;
+        }
+        
+        .timeline-item h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        
+        .info-box h3 {
+            color: var(--gold);
+            border: none;
+            padding: 0;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .info-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+        
+        .info-item .number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--gold);
+        }
+        
+        /* Quote */
+        .quote {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--secondary);
+            padding: 30px;
+            border-left: 5px solid var(--gold);
+            background: var(--light);
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .quote::before {
+            content: '"';
+            font-size: 5rem;
+            color: var(--gold);
+            opacity: 0.3;
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            font-family: serif;
+        }
+        
+        /* Table */
+        .冷知识-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .冷知识-table th, .冷知识-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--accent);
+        }
+        
+        .冷知识-table th {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .冷知识-table tr:hover {
+            background: var(--light);
+        }
+        
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .gallery-item {
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gallery-item::after {
+            content: attr(data-label);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 15px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: var(--cream);
+            text-align: center;
+            padding: 40px;
+            margin-top: 60px;
+        }
+        
+        footer p {
+            opacity: 0.7;
+            text-align: center;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+                letter-spacing: 0.3em;
+            }
+            
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 30px 20px;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 10, 0, 0.95);
+            padding: 15px 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .nav-logo {
+            color: var(--gold);
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 0.2em;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        body {
+            padding-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="nav-logo">FIRENZE</div>
+            <div class="nav-links">
+                <a href="#overview">概览</a>
+                <a href="#duomo">圣母百花</a>
+                <a href="#medici">美第奇</a>
+                <a href="#uffizi">乌菲兹</a>
+                <a href="#academy">学院</a>
+                <a="#tips">贴士</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>FIRENZE</h1>
+            <p class="subtitle">佛罗伦萨 · 艺术之都</p>
+            <p style="margin-top: 20px; opacity: 0.8;">一场跨越千年的艺术盛宴</p>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 概览 -->
+        <section id="overview" class="fade-in">
+            <h2>佛罗伦萨速览</h2>
+            <div class="info-box">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="number">1343</div>
+                        <div>建城年份</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="number">15世纪</div>
+                        <div>文艺复兴巅峰</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="number">40+</div>
+                        <div>博物馆数量</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="number">3-5天</div>
+                        <div>建议游览天数</div>
+                    </div>
+                </div>
+            </div>
+            <div class="quote">
+                "佛罗伦萨不是一座城市，而是一本活着的艺术史。"
+            </div>
+            <p>这是一座 <strong>"三步一壁画，五步一雕像"</strong> 的城市。位于意大利托斯卡纳大区的佛罗伦萨，是文艺复兴的发源地，十三世纪时更是欧洲的金融心脏。走在街上，你永远不知道下一个拐角会遇见谁——可能是米开朗基罗的徒弟，可能是美第奇家族的遗产，也可能是一个藏着刑具的古老柱子。</p>
+        </section>
+
+        <!-- 圣母百花大教堂 -->
+        <section id="duomo" class="fade-in">
+            <h2>🏛️ 圣母百花大教堂及其周边</h2>
+            
+            <h3>天堂之门的故事</h3>
+            <p>来到佛罗伦萨，第一站必须是 <strong>圣母百花大教堂</strong>。但在此之前，你得先看看教堂门前的 <strong>天堂之门</strong>（Porta del Paradiso）。</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>1401年 · 史诗级PK赛</h4>
+                    <p>商人们为了给洗礼堂装新门，举办了一场PK赛：相同主题、相同材料、一年时间，谁做得最牛就把活儿给谁。</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>吉贝尔蒂 · 最终胜出者</h4>
+                    <p>擅长套评委喜好，据说他赛前费尽心机去套评委的话，按喜好下单。</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>布鲁内莱斯基 · 复仇者</h4>
+                    <p>落选后一气之下跑去罗马深造，十多年后带着<strong>降维打击</strong>的技术杀了回来，用不用支架就能造穹顶的绝技征服了所有人。</p>
+                </div>
+            </div>
+            
+            <div class="info-box" style="background: linear-gradient(135deg, #CD853F, #8B4513);">
+                <h3>💡 冷知识</h3>
+                <p>门旁边两根柱子是从比萨搬来的感谢礼。比萨人熏黑了柱子，因为它们太亮了——亮的能照出人心。</p>
+            </div>
+            
+            <h3>乔托钟楼</h3>
+            <p>钟楼由 <strong>乔托</strong> 设计——就是那个发现透视法、说"你们画得都不对"的画家。当时的艺术家没有"术业有专攻"，达芬奇同时是画家+发明家+建筑师很正常。</p>
+            
+            <h3>爬穹顶的正确姿势</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">🧗</div>
+                    <h4>建议爬！</h4>
+                    <p>可以近距离看壁画、研究穹顶结构，重走几百年前布鲁内莱斯基的路。</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">😤</div>
+                    <h4>钟楼真的很喘</h4>
+                    <p>博物馆鸡贼地规定：爬穹顶必须连钟楼票一起买。</p>
+                </div>
+            </div>
+            
+            <h3>布鲁内莱斯基的穹顶秘密</h3>
+            <p>他没有用脚手架！而是发明了一种独特的砌砖方法——<strong>鱼骨式砌法</strong>，让穹顶自己撑自己。而且是双层结构：内层承重，外层保护。</p>
+        </section>
+
+        <!-- 美第奇家族 -->
+        <section id="medici" class="fade-in">
+            <h2>👑 美第奇家族：佛罗伦萨的幕后推手</h2>
+            
+            <div class="quote">
+                "没有美第奇家族就没有文艺复兴。"
+            </div>
+            
+            <h3>三代掌门的传奇人生</h3>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>柯西莫一世 · 运筹帷幄的野心家</h4>
+                    <p>把从老爸手里接过的美第奇银行开到欧洲各个城市。用钱慢慢拉拢其他家族，策划联姻，慢慢靠近权力中心。</p>
+                    <p><strong>人生危机：</strong>1433年因莫须有的罪名被囚禁在旧宫，但他用巨额贿赂+发动群众力量，一年后就重新回到佛罗伦萨，在幕后控制整个国家。</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>皮耶罗 · 痛风患者</h4>
+                    <p>因为常年饱受痛风的折磨，体弱多病，人称"痛风患者"。</p>
+                    <p><strong>危机时刻：</strong>反对派策划暗杀他，16岁的儿子洛伦佐用计谋化解了危机。</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>洛伦佐 · 天才少年</h4>
+                    <p>20岁接班，用家族自由开放亲民的态度掌控一切。与教皇西斯图四世掰手腕，亲自拜访那不勒斯国王说服他退兵。</p>
+                    <p><strong>伟大成就：</strong>发掘了米开朗基罗、波提切利等艺术大师。</p>
+                </div>
+            </div>
+            
+            <h3>弗朗西斯科一世 · 宅男炼金师</h3>
+            <p>柯西莫一世的儿子，对治国没兴趣，唯独疯狂痴迷于<strong>修仙</strong>（炼金术）。在旧宫里挖了一个密室，天天躲在里面研究各种宝石、魔法药水。</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">🧪</div>
+                    <h4>小书房</h4>
+                    <p>完全没有窗户，终年靠烛光照明的秘密房间。墙上的画背后全是暗格，是一整面巨大的炼金术盲盒柜。</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💀</div>
+                    <h4>致命宫斗</h4>
+                    <p>妻子乔万娜意外坠楼，比安卡被扶正后与弗朗西斯科，双双被弟弟费尔南多用砒霜毒死。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 旧宫广场 -->
+        <section class="fade-in">
+            <h2>🏰 旧宫广场与雕塑</h2>
+            
+            <p>走出教堂，没几分钟就会撞见一个 <strong>雕塑多到密集恐惧症患者会发作的广场</strong>——<strong>旧宫广场</strong>（Signoria Square）。</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">⛲</div>
+                    <h4>海神喷泉</h4>
+                    <p>本意是展示柯西莫一世的政绩，但群众说："雕塑唯一的亮点就是白。"海神的脸是照着柯西莫本人雕的——老板开心就好。</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🐝</div>
+                    <h4>科西莫一世骑马像</h4>
+                    <p>底座有一群蜜蜂围着蜂后——意思是："跟着我有的吃。"</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🧙</div>
+                    <h4>美杜莎雕塑</h4>
+                    <p>珠宝匠切里尼的作品，在雕像头盔里藏了自己的脸——一般雕像不留名，但他偷偷玩了把个性签名。</p>
+                </div>
+            </div>
+            
+            <h3>广场上的"羞耻刑具"</h3>
+            <p>广场中央曾有一个<strong>车轮</strong>，不仅是战车车轮的象征，还是打屁股的刑具——把罪犯光着屁股按在上面，反复往下摔。</p>
+            <p>柱子上的圆环用来拴住小偷、骗子、赖账的商人，在城市最繁忙的地方接受群众围观羞辱。</p>
+        </section>
+
+        <!-- 乌菲兹美术馆 -->
+        <section id="uffizi" class="fade-in">
+            <h2>🎨 乌菲兹美术馆</h2>
+            
+            <div class="info-box">
+                <h3>Uffizi = 办公室</h3>
+                <p>在意大利语里就是"办公室"的意思。柯西莫一世把公务员搬到自家旁边，<strong>目的只有一个：防止员工摸鱼</strong>。</p>
+            </div>
+            
+            <h3>意外的诞生</h3>
+            <p>真正让乌菲兹闻名于世的，是一个<strong>宅男</strong>——柯西莫一世的儿子弗朗西斯科。一五八一年，他把办公室顶楼改成私人美术馆，阴差阳错成就了今天意大利人流量最大的博物馆。</p>
+            
+            <h3>文艺复兴绘画五阶段</h3>
+            <table class="冷知识-table">
+                <tr>
+                    <th>阶段</th>
+                    <th>代表画家</th>
+                    <th>特点</th>
+                </tr>
+                <tr>
+                    <td>第一阶段</td>
+                    <td>乔托、切马布埃</td>
+                    <td>圣经主题，金箔背景，开始有空间感</td>
+                </tr>
+                <tr>
+                    <td>第二阶段</td>
+                    <td>安吉利科、马萨乔</td>
+                    <td>明暗透视，空间纵深，肖像画出现</td>
+                </tr>
+                <tr>
+                    <td>第三阶段</td>
+                    <td>达芬奇</td>
+                    <td>柔和轮廓，空气感，PM2.5效果</td>
+                </tr>
+                <tr>
+                    <td>第四阶段</td>
+                    <td>米开朗基罗</td>
+                    <td>雕塑感，肌肉线条，运动感</td>
+                </tr>
+                <tr>
+                    <td>第五阶段</td>
+                    <td>拉斐尔</td>
+                    <td>理想美，完美平衡</td>
+                </tr>
+            </table>
+            
+            <h3>波提切利的马屁艺术</h3>
+            <p>波提切利是美第奇家族身边的红人，他的画里全是给老板拍的马屁：</p>
+            <ul>
+                <li>画两个医生被封圣 → 美第奇名字有"医生"意思 = 他们也是圣人</li>
+                <li>画圣多米尼加和圣弗朗西斯科 → 美第奇两边都支持 = 有才又爱百姓</li>
+                <li>画圣洛伦佐被烤 → 委托人也叫洛伦佐 → 四舍五入也是圣人</li>
+            </ul>
+        </section>
+
+        <!-- 学院美术馆 -->
+        <section id="academy" class="fade-in">
+            <h2>🏛️ 学院美术馆</h2>
+            
+            <h3>大卫：文艺复兴的代言人</h3>
+            <p>米开朗基罗雕刻大卫时只有 <strong>25岁</strong>，用了<strong>三年</strong>把一块别人嫌脆要扔掉的大理石变成无价之宝。</p>
+            
+            <div class="info-box" style="background: linear-gradient(135deg, #2C1810, #8B4513);">
+                <h3>为什么选择战斗前的那一刻？</h3>
+                <p>大卫左手紧握投石带，右手下垂，眉头微皱，目光坚定。这一瞬间最紧张、最有张力。正如米开朗基罗自己说的：<strong>"雕像一直在大理石里，我只是把多余的部分去掉。"</strong></p>
+            </div>
+            
+            <p>大卫后来成为佛罗伦萨的象征——就像中国的大熊猫代表着中国。</p>
+            
+            <h3>最被低估的博物馆</h3>
+            <p>学院美术馆队很长，但这里真的比大卫震撼！</p>
+            <ul>
+                <li>米开朗基罗未完成的四座雕塑</li>
+                <li>詹博罗尼亚的缠绕雕塑——让人围着转圈看</li>
+                <li>安吉利科的宗教画——让人感受到神性</li>
+            </ul>
+        </section>
+
+        <!-- 瓦萨里走廊 -->
+        <section class="fade-in">
+            <h2>🌉 瓦萨里走廊与皮蒂宫</h2>
+            
+            <h3>走廊的秘密</h3>
+            <p>柯西莫一世修了条走廊——<strong>瓦萨里走廊</strong>。从旧宫→乌菲兹→老桥→皮蒂宫，耗时6个月。</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">💑</div>
+                    <h4>结婚礼物？</h4>
+                    <p>传说他老婆从那不勒斯嫁过来，受不了旧宫的阴暗狭小，于是修了条上下班通道。</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏃</div>
+                    <h4>逃生通道</h4>
+                    <p>危机时刻可以从旧宫直接跑到皮蒂宫躲起来。按中国人的逻辑，结婚送逃生通道也太魔幻了...</p>
+                </div>
+            </div>
+            
+            <h3>老桥的变迁</h3>
+            <p>以前老桥上都是肉铺、鱼铺，臭气熏天。柯西莫一世全部赶走，换成珠宝店——变成今天的样子。</p>
+            
+            <h3>米开朗基罗广场</h3>
+            <p>这里是看夕阳的网红打卡点。傍晚时分，台阶上坐满了等日落的人。</p>
+            <p>对外国人来说，夕阳是礼物；对中国来说，夕阳有点"落寞"。但无论浪漫还是惆怅，佛罗伦萨在夕阳下的美都值得你多拍几张。</p>
+        </section>
+
+        <!-- 破破烂烂路线 -->
+        <section class="fade-in">
+            <h2>🚶 破破烂烂路线：越破越有料</h2>
+            
+            <div class="info-box">
+                <h3>💡 黄金法则</h3>
+                <p style="font-size: 1.3rem;">在佛罗伦萨，<strong>越是破旧的房子里面越是有料</strong>。</p>
+            </div>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">⛪</div>
+                    <h4>圣马可修道院</h4>
+                    <p>外表破破烂烂，里面曾经是欧洲第一所美术学院。米开朗基罗就是在这里遇到美第奇家族的贵人。</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⛪</div>
+                    <h4>圣洛伦佐教堂</h4>
+                    <p>美第奇家族的御用教堂+陵园。外表看起来很寒碜，但米开朗基罗负责的礼拜堂里面很精彩。</p>
+                </div>
+            </div>
+            
+            <h3>安吉利科修士</h3>
+            <p>在圣马可修道院，有一位用画笔祈祷的修士——<strong>安吉利科</strong>。他的画笔在信仰的驱使下，每一笔都是最真挚的情感。</p>
+            <p>他的画非常简单，除了跪在耶稣脚下的圣多明我，便是受尽磨难却一脸祥和的耶稣。贫瘠的地面和天蓝色的背景，找不到一点多余的东西——目的是让修士把注意力都集中在感受耶稣感受到的痛苦上。</p>
+        </section>
+
+        <!-- 实用信息 -->
+        <section id="tips" class="fade-in">
+            <h2>🍝 实用信息</h2>
+            
+            <table class="冷知识-table">
+                <tr>
+                    <th>项目</th>
+                    <th>建议</th>
+                </tr>
+                <tr>
+                    <td>最佳游览季节</td>
+                    <td>春秋季节（4-6月，9-10月）</td>
+                </tr>
+                <tr>
+                    <td>建议天数</td>
+                    <td>3-5天</td>
+                </tr>
+                <tr>
+                    <td>必看景点</td>
+                    <td>圣母百花大教堂、乌菲兹美术馆、学院美术馆、旧宫广场、米开朗基罗广场</td>
+                </tr>
+                <tr>
+                    <td>隐藏技能</td>
+                    <td>外表越破的房子里面越有料</td>
+                </tr>
+            </table>
+            
+            <h3>冷知识盘点</h3>
+            <table class="冷知识-table">
+                <tr>
+                    <th>冷知识</th>
+                    <th>详情</th>
+                </tr>
+                <tr>
+                    <td>城市布局</td>
+                    <td>罗马帝国兵营的格子布局，两条路交叉处是市中心</td>
+                </tr>
+                <tr>
+                    <td>金融中心</td>
+                    <td>十三世纪佛罗伦萨是欧洲金融心脏</td>
+                </tr>
+                <tr>
+                    <td>美第奇家族</td>
+                    <td>银行起家，赞助了几乎所有文艺复兴大师</td>
+                </tr>
+                <tr>
+                    <td>车轮刑具</td>
+                    <td>广场上的车轮除了象征胜利，还是打屁股的刑具</td>
+                </tr>
+                <tr>
+                    <td>柱子拴人</td>
+                    <td>以前用来拴住小偷、骗子，在市中心示众</td>
+                </tr>
+                <tr>
+                    <td>蜂后象征</td>
+                    <td>美第奇家族徽章上有蜜蜂，象征勤劳</td>
+                </tr>
+                <tr>
+                    <td>乌菲兹起源</td>
+                    <td>最初是防止员工摸鱼的办公室</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- 相关视频 -->
+        <section class="fade-in">
+            <h2>🎬 相关视频</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>佛罗伦萨游记第一集</h4>
+                    <p>佛罗伦萨的出圈故事与艺术圈八卦</p>
+                </div>
+                <div class="card">
+                    <h4>佛罗伦萨游记第二集</h4>
+                    <p>美第奇家族的崛起与乌菲兹的诞生</p>
+                </div>
+                <div class="card">
+                    <h4>美第奇家族之黄金一代</h4>
+                    <p>三代掌门的传奇人生</p>
+                </div>
+                <div class="card">
+                    <h4>乌菲兹之特种兵版</h4>
+                    <p>快速打卡乌菲兹必备</p>
+                </div>
+                <div class="card">
+                    <h4>学院美术馆</h4>
+                    <p>大卫和他的故事</p>
+                </div>
+                <div class="card">
+                    <h4>穹顶之下</h4>
+                    <p>布鲁内莱斯基的天才设计</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>佛罗伦萨 · 一座永远不会让你失望的城市</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">"这座城市的故事远比我们看到的要多得多。"</p>
+        <p style="margin-top: 20px; opacity: 0.5;">收集自 10+ 个抖音视频 · 约 108KB 文字内容</p>
+    </footer>
+
+    <script>
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
