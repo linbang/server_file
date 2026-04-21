@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>巴黎景点完全攻略 | Paris Travel Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+SC:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #0a0908;
+            --color-card: #141210;
+            --color-card-hover: #1a1815;
+            --color-text: #f0ebe3;
+            --color-text-muted: #9a9186;
+            --color-accent: #d4a853;
+            --color-accent-light: #f0d896;
+            --color-border: #2d2823;
+            --color-highlight: #8b5a2b;
+            --color-danger: #c45c5c;
+            --font-display: 'Playfair Display', 'Noto Serif SC', serif;
+            --font-body: 'Noto Serif SC', 'Cormorant Garamond', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.85;
+            min-height: 100vh;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(212, 168, 83, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139, 90, 43, 0.06) 0%, transparent 40%),
+                linear-gradient(180deg, #0a0908 0%, #12100e 50%, #0a0908 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(212, 168, 83, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(212, 168, 83, 0.025) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            padding: 2rem;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 7vw, 5rem);
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            color: var(--color-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h1 span {
+            color: var(--color-accent);
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--color-text-muted);
+            letter-spacing: 0.25em;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-intro {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            color: var(--color-text-muted);
+            font-size: 1rem;
+            line-height: 1.9;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-text-muted);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 50px;
+            background: linear-gradient(to bottom, var(--color-accent), transparent);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 9, 8, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 168, 83, 0.15);
+            transform: translateY(-100%);
+            animation: slideDown 0.8s ease-out 0.5s forwards;
+        }
+
+        @keyframes slideDown { to { transform: translateY(0); } }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            letter-spacing: 0.25em;
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.3rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 1.5rem;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 7rem;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: revealSection 0.8s ease-out forwards;
+        }
+
+        section:nth-child(1) { animation-delay: 0.1s; }
+        section:nth-child(2) { animation-delay: 0.15s; }
+        section:nth-child(3) { animation-delay: 0.2s; }
+        section:nth-child(4) { animation-delay: 0.25s; }
+        section:nth-child(5) { animation-delay: 0.3s; }
+        section:nth-child(6) { animation-delay: 0.35s; }
+        section:nth-child(7) { animation-delay: 0.4s; }
+        section:nth-child(8) { animation-delay: 0.45s; }
+        section:nth-child(9) { animation-delay: 0.5s; }
+        section:nth-child(10) { animation-delay: 0.55s; }
+        section:nth-child(11) { animation-delay: 0.6s; }
+
+        @keyframes revealSection {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Section Header */
+        .section-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .section-number {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            color: var(--color-accent);
+            line-height: 1;
+            min-width: 90px;
+            opacity: 0.7;
+        }
+
+        .section-title-group {
+            flex: 1;
+        }
+
+        .section-emoji {
+            font-size: 2.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            font-weight: 500;
+            color: var(--color-text);
+            margin-bottom: 0.3rem;
+        }
+
+        .section-summary {
+            color: var(--color-accent);
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        /* Content Cards */
+        .content-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .content-card {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            padding: 2rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: linear-gradient(to bottom, var(--color-accent), var(--color-highlight));
+            transition: height 0.5s ease;
+        }
+
+        .content-card:hover {
+            background: var(--color-card-hover);
+            transform: translateX(8px);
+            border-color: rgba(212, 168, 83, 0.2);
+        }
+
+        .content-card:hover::before {
+            height: 100%;
+        }
+
+        .card-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--color-accent-light);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .card-icon {
+            font-size: 1rem;
+        }
+
+        .card-content {
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+            line-height: 1.95;
+        }
+
+        .card-content p {
+            margin-bottom: 0.8rem;
+        }
+
+        .card-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .card-content strong {
+            color: var(--color-text);
+        }
+
+        .card-content em {
+            color: var(--color-accent);
+            font-style: normal;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.08) 0%, rgba(139, 90, 43, 0.04) 100%);
+            border: 1px solid rgba(212, 168, 83, 0.25);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .highlight-box::before {
+            content: '"';
+            position: absolute;
+            top: -0.3rem;
+            left: 1rem;
+            font-size: 3.5rem;
+            color: var(--color-accent);
+            opacity: 0.2;
+            font-family: var(--font-display);
+            line-height: 1;
+        }
+
+        .highlight-text {
+            font-style: italic;
+            color: var(--color-text);
+            font-size: 1rem;
+        }
+
+        /* Tips Box */
+        .tips-box {
+            background: rgba(212, 168, 83, 0.04);
+            border-left: 3px solid var(--color-accent);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .tips-title {
+            color: var(--color-accent);
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .tips-list {
+            list-style: none;
+            color: var(--color-text-muted);
+        }
+
+        .tips-list li {
+            padding: 0.4rem 0;
+            padding-left: 1.3rem;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .tips-list li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-size: 0.6rem;
+            top: 0.5rem;
+        }
+
+        /* Route Box */
+        .route-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .route-day {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            padding: 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .route-day:hover {
+            background: var(--color-card-hover);
+            transform: translateY(-5px);
+        }
+
+        .route-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            color: var(--color-accent);
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .route-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--color-text);
+            margin-bottom: 0.8rem;
+        }
+
+        .route-places {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+            background: linear-gradient(180deg, transparent, rgba(212, 168, 83, 0.03), transparent);
+        }
+
+        .quote-text {
+            font-family: var(--font-display);
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            color: var(--color-text);
+            font-style: italic;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .quote-author {
+            color: var(--color-accent);
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-card);
+            border-top: 1px solid var(--color-border);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 6rem;
+        }
+
+        .footer-text {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-heart {
+            color: var(--color-accent);
+            margin: 0 0.5rem;
+        }
+
+        .footer-year {
+            color: var(--color-text-muted);
+            font-size: 0.75rem;
+            margin-top: 1rem;
+            opacity: 0.7;
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 8px;
+            height: 8px;
+            background: var(--color-accent);
+            border-radius: 50%;
+        }
+
+        .timeline-year {
+            color: var(--color-accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-text {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links { display: none; }
+            .section-header { flex-direction: column; gap: 1rem; }
+            .container { padding: 3rem 1rem; }
+            .content-card { padding: 1.5rem; }
+        }
+
+        /* Print Styles */
+        @media print {
+            .hero { min-height: auto; padding: 2rem; }
+            .hero-scroll, nav { display: none; }
+            section { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <nav>
+            <div class="nav-logo">PARIS</div>
+            <ul class="nav-links">
+                <li><a href="#eiffel">埃菲尔铁塔</a></li>
+                <li><a href="#louvre">卢浮宫</a></li>
+                <li><a href="#notre-dame">巴黎圣母院</a></li>
+                <li><a href="#arc">凯旋门</a></li>
+                <li><a href="#sainte-chapelle">圣礼拜堂</a></li>
+                <li><a href="#pantheon">先贤祠</a></li>
+                <li><a href="#opera">歌剧院</a></li>
+                <li><a href="#orsay">奥赛博物馆</a></li>
+            </ul>
+        </nav>
+        <div class="hero-content">
+            <div class="hero-icon">🗼</div>
+            <h1>巴黎<span>攻略</span></h1>
+            <p class="hero-subtitle">从铁塔到卢浮宫，这座城市值得你认真逛</p>
+            <p class="hero-intro">
+                欢迎来到巴黎！这座城市堪称是"建筑的博物馆，艺术的课堂，历史的课堂"。
+                如果你以为巴黎只有埃菲尔铁塔、卢浮宫和凯旋门，那你就太naive了！
+                跟着这份攻略，让我们一起深入探索这座浪漫之都的每一个角落。
+            </p>
+        </div>
+        <div class="hero-scroll">
+            <span>SCROLL</span>
+            <div class="scroll-line"></div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- 01. 埃菲尔铁塔 -->
+        <section id="eiffel">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <div class="section-title-group">
+                    <div class="section-emoji">🗼</div>
+                    <h2 class="section-title">埃菲尔铁塔</h2>
+                    <p class="section-summary">从"全民公敌"到全球符号的逆袭之路</p>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="content-card fade-in">
+                    <h3 class="card-title"><span class="card-icon">📜</span>必知八卦</h3>
+                    <div class="card-content">
+                        <p>你知道吗？这座现在看起来高大上的铁塔，在1887年刚开工的时候可是遭到了整个巴黎文艺圈的联名抵制！莫泊桑、左拉、作曲家圣桑这些大佬们写公开信反对，把它称为<em>"巴黎的耻辱"</em>和<em>"黑色的烟囱"</em>。</p>
+                        <p>最讽刺的是，莫泊桑后来成了铁塔餐厅的常客——因为这里是巴黎唯一一个<strong>看不见铁塔</strong>的地方。当被问及时，他无奈地说："因为这里是巴黎唯一一个看不见那鬼东西的地方。"</p>
+                    </div>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h3 class="card-title"><span class="card-icon">💕</span>建造背后的爱情故事</h3>
+                    <div class="card-content">
+                        <p>设计师埃菲尔是个桥梁工程师，不是建筑师。他年轻时设计了法国南部的<strong>加拉比高架桥</strong>（当时世界最高铁路桥），还参与了自由女神像的内部结构设计。</p>
+                        <p>1887年铁塔开工时，埃菲尔的妻子玛格丽特去世了，他在人生最黑暗的时刻把全部情绪投入到建造中。铁塔建成后，他在塔尖某根柱子上刻下浪漫的话：<em>"若你仰望着它，就如同我仰望着你。"</em></p>
+                        <p>2015年维修时这句话被意外发现，成为了埃菲尔铁塔最浪漫的秘密。</p>
+                    </div>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h3 class="card-title"><span class="card-icon">📊</span>疯狂的数据</h3>
+                    <div class="card-content">
+                        <p>高度：324米（包括天线） | 重量：约10000吨 | 铆钉数量：250万个 | 建造时间：2年2个月零5天</p>
+                        <p>每七年要刷一次防锈漆，需要用掉<strong>60吨油漆</strong>！</p>
+                        <p>1909年差一点被拆除，后来因为可用于无线电信发射才被保留下来。</p>
+                    </div>
+                </div>
+
+                <div class="tips-box fade-in">
+                    <div class="tips-title">📸 拍照打卡点</div>
+                    <ul class="tips-list">
+                        <li><strong>战神广场</strong>：铁塔正前方大草坪，经典角度</li>
+                        <li><strong>夏乐宫</strong>：拍铁塔+水面倒影的绝佳位置</li>
+                        <li><strong>塞纳河游船</strong>：从河上看铁塔，视角完全不同</li>
+                        <li><strong>最佳时间</strong>：日落时分，可以看到巴黎从白天变到夜晚</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02. 卢浮宫 -->
+        <section id="louvre">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <div class="section-title-group">
+                    <div class="section-emoji">🏛️</div>
+                    <h2 class="section-title">卢浮宫</h2>
+                    <p class="section-summary">三小时只能看个寂寞，一天勉强能摸到门槛</p>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="content-card fade-in">
+                    <h3 class="card-title"><span class="card-icon">🎨</span>镇馆三宝的正确打开方式</h3>
+                    <div class="card-content">
+                        <p><strong>蒙娜丽莎</strong> - 1911年曾被盗走，两年后才找回——当时小偷把它藏在衣服里带走了！想拍到没人的？早上9点开门时第一批冲进去！</p>
+                        <p><strong>胜利女神</strong> - 约公元前190年创作，完美无瑕但<strong>少了头和手臂</strong>，她身后翅膀的造型就是<strong>Nike logo的原型</strong>！</p>
+                        <p><strong>断臂维纳斯</strong> - 1820年在希腊米洛斯岛被发现，至今不知道她原本拿着什么</p>
+                    </div>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h3 class="card-title"><span class="card-icon">🗺️</span>三条经典路线</h3>
+                    <div class="card-content">
+                        <p><strong>路线A：经典打卡线（约2小时）</strong><br>胜利女神 → 蒙娜丽莎 → 断臂维纳斯</p>
+                        <p style="margin-top:1rem"><strong>路线B：小众艺术线（约1.5小时）</strong><br>叙利馆顶层法国绘画馆，几乎没人！</p>
+                        <p style="margin-top:1rem"><strong>路线C：文物探索线（约2小时）</strong><br>汉谟拉比法典 → 古埃及文物 → 米开朗基罗</p>
+                    </div>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h3 class="card-title"><span class="card-icon">💎</span>容易被忽略的宝藏</h3>
+                    <div class="card-content">
+                        <p><strong>《加纳的婚礼》</strong> - 蒙娜丽莎对面，卢浮宫最大的一幅画！</p>
+                        <p><strong>《自由引导人民》</strong> - 德拉克洛瓦的代表作</p>
+                        <p><strong>《拿破仑加冕》</strong> - 卢浮宫最大尺幅的油画，画了200多号人！</p>
+                        <p><strong>汉谟拉比法典</strong> - 世界最早的成文法典，三千七百多年，价值远超三宝！</p>
+                    </div>
+                </div>
+
+                <div class="tips-box fade-in">
+                    <div class="tips-title">💡 实用 Tips</div>
+                    <ul class="tips-list">
+                        <li>建议提前在Klook买票，省去排队时间</li>
+                        <li>注意罢工：卢浮宫经常罢工，提前查消息！</li>
+                        <li>周三、周五开放至晚上9:45，适合下班后参观</li>
+                        <li>租一个讲解器（约5欧元），历史背景比画作本身还有趣</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 03. 巴黎圣母院 -->
+        <section id="notre-dame">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <div class="section-title-group">
+                    <div class="section-emoji">⛪</div>
+                    <h2 class="section-title">巴黎圣母院</h2>
+                    <p class="section-summary">雨果的一部小说救了它，一场大火考验了它</p>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="content-card fade-in">
+                    <h3 class="card-title"><span class="card-icon">📅</span>历史时刻</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">1163年</div>
+                            <div class="timeline-text">开始建造</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">1831年</div>
+                            <div class="timeline-text">雨果《巴黎圣母院》出版，拯救了它</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2019年4月15日</div>
+                            <div class="timeline-text">大火，塔尖坍塌，全世界哭泣</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2024年12月7日</div>
+                            <div class="timeline-text">重新开放</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2025年9月20日</div>
+                            <div class="timeline-text">尖塔重新对游客开放</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h3 class="card-title"><span class="card-icon">🏗️</span>四大看点</h3>
+                    <div class="card-content">
+                        <p><strong>1. 哥特式建筑结构</strong>：整个中殿挑高30米，肋拱像骨架一样撑起屋顶。</p>
+                        <p><strong>2. 玫瑰玻璃花窗</strong>：北侧玫瑰窗直径超过10米，13世纪原作！2019年火灾居然没烧到它。</p>
+                        <p><strong>3. 圣母怜子雕塑群</strong>：主祭坛背后极其精美的耶稣受难雕塑。</p>
+                        <p><strong>4. 宝库</strong>：藏着耶稣受难时的<strong>荆棘之冠</strong>！还有圣路易的镶金权杖。</p>
+                    </div>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h3 class="card-title"><span class="card-icon">😈</span>有趣细节</h3>
+                    <div class="card-content">
+                        <p>正面最上面那排28尊王像，<strong>不是法国国王，是圣经里的犹太诸王</strong>。大革命时群众搞错了，砍了它们的头。</p>
+                        <p>钟楼是卡西莫多敲钟的地方，虽然现在还没完全开放。</p>
+                        <p>圣母院有<strong>十只滴水嘴兽</strong>（gargoyles），它们的任务是吓跑邪灵！</p>
+                        <p>顶层还有一堆奇形怪状的石像（chimeraas），它们<em>"思考人类的命运"</em>。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04. 凯旋门 -->
+        <section id="arc">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <div class="section-title-group">
+                    <div class="section-emoji">🏛️</div>
+                    <h2 class="section-title">巴黎凯旋门</h2>
+                    <p class="section-summary">石头砌成的史书</p>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="content-card fade-in">
+                    <h3 class="card-title"><span class="card-icon">📜</span>悲伤的故事</h3>
+                    <div class="card-content">
+                        <p>拿破仑在1806年下令建造凯旋门，为了庆祝奥斯特里茨战役的胜利。无奈工程太慢，直到1836年才竣工，<strong>拿破仑本人早就在滑铁卢战役中归西了</strong>。</p>
+                        <p>他的灵柩迁往荣军院时，才第一次经过这个为他而建的凯旋门——而且是以<em>遗体身份</em>。</p>
+                    </div>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h3 class="card-title"><span class="card-icon">🎨</span>四幅著名浮雕</h3>
+                    <div class="card-content">
+                        <p><strong>《马赛曲》</strong> - 描绘1792年法国迎战反法同盟，德拉克洛瓦的代表作</p>
+                        <p><strong>《胜利》</strong> - 1810年拿破仑打败第五次反法同盟</p>
+                        <p><strong>《抵抗》</strong> - 1814年拿破仑兵败后的悲壮情绪</p>
+                        <p><strong>《和平》</strong> - 1815年法国最终走向和平</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05. 圣礼拜堂 -->
+        <section id="sainte-chapelle">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <div class="section-title-group">
+                    <div class="section-emoji">⛪</div>
+                    <h2 class="section-title">圣礼拜堂</h2>
+                    <p class="section-summary">哥特式光影的极致浪漫</p>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="content-card fade-in">
+                    <h3 class="card-title"><span class="card-icon">✨</span>必看亮点</h3>
+                    <div class="card-content">
+                        <p><strong>彩绘玻璃天幕</strong>：15扇高达15米的大玻璃窗，总面积600平米，<strong>1113块玻璃片</strong>组成，描绘1100多个圣经场面。</p>
+                        <p><strong>玫瑰花窗</strong>：西侧直径9米，描绘末日审判，被誉为<em>"巴黎最美的光影艺术"</em>。</p>
+                        <p><strong>哥特式精髓</strong>：没有石墙，全靠玻璃和飞扶壁支撑，像一座水晶宫。</p>
+                    </div>
+                </div>
+
+                <div class="tips-box fade-in">
+                    <div class="tips-title">🎫 实用信息</div>
+                    <ul class="tips-list">
+                        <li>门票：10欧元，博物馆通票可用</li>
+                        <li>提前预约最好，不然多排会儿队</li>
+                        <li>二战时法国人把彩绘玻璃全部拆下保存，战后重新复原</li>
+                        <li>路易九世在圣物上花的钱比建教堂的钱还多！</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06. 先贤祠 -->
+        <section id="pantheon">
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <div class="section-title-group">
+                    <div class="section-emoji">🏛️</div>
+                    <h2 class="section-title">先贤祠</h2>
+                    <p class="section-summary">伟人的永恒安息地</p>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="content-card fade-in">
+                    <h3 class="card-title"><span class="card-icon">📋</span>入住条件（高到离谱）</h3>
+                    <div class="card-content">
+                        <p>想埋在先贤祠？你需要：</p>
+                        <p>1. 对民族国家有杰出贡献</p>
+                        <p>2. 符合时代价值观</p>
+                        <p>3. 通过国民议会讨论</p>
+                        <p>4. 总统签署命令</p>
+                        <p>连<strong>巴尔扎克、莫泊桑、傅科</strong>都没能入住！</p>
+                    </div>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h3 class="card-title"><span class="card-icon">🌟</span>长眠的伟人</h3>
+                    <div class="card-content">
+                        <p><strong>伏尔泰</strong> - 启蒙时代代表，墓碑上刻着："他教会我们如何自由"</p>
+                        <p><strong>卢梭</strong> - 平等之父</p>
+                        <p><strong>雨果</strong> - 《巴黎圣母院》《悲惨世界》</p>
+                        <p><strong>居里夫人</strong> - 第一个因自身成就入驻的女性科学家</p>
+                        <p><strong>傅科摆</strong> - 67米长的钟摆证明地球自转</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 07. 歌剧院 -->
+        <section id="opera">
+            <div class="section-header">
+                <span class="section-number">07</span>
+                <div class="section-title-group">
+                    <div class="section-emoji">🎭</div>
+                    <h2 class="section-title">巴黎歌剧院</h2>
+                    <p class="section-summary">极尽奢华的"爱情结晶"</p>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="content-card fade-in">
+                    <h3 class="card-title"><span class="card-icon">👻</span>《歌剧魅影》的原型</h3>
+                    <div class="card-content">
+                        <p>加尼耶有个助理叫<strong>卡格尼·埃里克</strong>，长得很丑，常年住在歌剧院地下公寓。他爱上了一个女歌手，包下5号包间。</p>
+                        <p>求婚被拒后，他郁郁寡欢，<strong>绝食自杀</strong>。法国作家加斯东·勒鲁根据这个故事创作了《歌剧魅影》！</p>
+                    </div>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h3 class="card-title"><span class="card-icon">💎</span>奢华数据</h3>
+                    <div class="card-content">
+                        <p>全世界最大的舞台（面积约等于一个网球场）</p>
+                        <p>一盏水晶吊灯<strong>重达8吨</strong></p>
+                        <p>使用约8000平方米大理石</p>
+                        <p>被誉为<em>"巴黎的首饰盒"</em></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 08. 奥赛博物馆 -->
+        <section id="orsay">
+            <div class="section-header">
+                <span class="section-number">08</span>
+                <div class="section-title-group">
+                    <div class="section-emoji">🎨</div>
+                    <h2 class="section-title">奥赛博物馆</h2>
+                    <p class="section-summary">印象派的圣殿</p>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="content-card fade-in">
+                    <h3 class="card-title"><span class="card-icon">🎯</span>特色定位</h3>
+                    <div class="card-content">
+                        <p>由废弃火车站改建，展出<strong>1820-1920</strong>这100年的艺术作品。</p>
+                        <p>卢浮宫管几千年，蓬皮杜管近一百年，<strong>这夹缝中的100年</strong>恰恰是世界艺术从"记录客观现实"转向"表达内心情感"的转折点！</p>
+                    </div>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h3 class="card-title"><span class="card-icon">🌻</span>梵高专区</h3>
+                    <div class="card-content">
+                        <p>奥赛博物馆是法国收藏梵高画作最多的地方！</p>
+                        <p>可以看到：《加歇医生的画像》《梵高自画像》《阿尔勒的黄色房间》...</p>
+                        <p>唯一没看到的是《罗纳河的星夜》，<strong>它回阿尔勒老家了</strong>。</p>
+                    </div>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h3 class="card-title"><span class="card-icon">💐</span>莫奈专区</h3>
+                    <div class="card-content">
+                        <p>《睡莲》系列——整整两个房间！</p>
+                        <p>《撑伞的女人》《圣拉扎尔火车站》</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 09. 2日游路线 -->
+        <section id="route">
+            <div class="section-header">
+                <span class="section-number">09</span>
+                <div class="section-title-group">
+                    <div class="section-emoji">🗺️</div>
+                    <h2 class="section-title">巴黎2日游路线推荐</h2>
+                    <p class="section-summary">跟着走不迷路</p>
+                </div>
+            </div>
+            <div class="route-box">
+                <div class="route-day fade-in">
+                    <div class="route-label">Day 1</div>
+                    <h3 class="route-title">博物馆日</h3>
+                    <p class="route-places">战神广场 → 奥赛博物馆 → 卢浮宫 → BIGBUS观光 → 香榭丽舍大街</p>
+                </div>
+                <div class="route-day fade-in">
+                    <div class="route-label">Day 2</div>
+                    <h3 class="route-title">皇宫与河流</h3>
+                    <p class="route-places">凡尔赛宫 → 蒙帕纳斯大楼观景台 → 塞纳河游船</p>
+                </div>
+            </div>
+            <div class="tips-box fade-in">
+                <div class="tips-title">⚠️ 实用 Tips</div>
+                <ul class="tips-list">
+                    <li>卢浮宫近期罢工频繁，提前查消息！</li>
+                    <li>推荐用Klook买巴黎景点通票，中文界面+人民币支付</li>
+                    <li>凡尔赛宫建议一整天！</li>
+                    <li>日落时分去蒙帕纳斯大楼，最美！</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 结语 -->
+        <section>
+            <div class="quote-section fade-in">
+                <p class="quote-text">
+                    "巴黎这座城市，本身就是一部厚重的史书。<br>
+                    它孕育了启蒙运动的思想之光，见证了法国大革命的热血浪潮，<br>
+                    也点燃过巴黎公社的理想火种。"
+                </p>
+                <p class="quote-author">—— 法国人民对自由、平等和博爱的追求，是这座城市最浪漫的底色</p>
+            </div>
+
+            <div class="content-card fade-in" style="text-align: center; padding: 3rem;">
+                <div class="card-content" style="max-width: 700px; margin: 0 auto;">
+                    <p style="font-size: 1.1rem; color: var(--color-text); margin-bottom: 1rem;">
+                        <strong>所以，别再只是打卡拍照了。</strong>
+                    </p>
+                    <p>
+                        试着走进这些博物馆、教堂、纪念馆，<br>
+                        去理解那些艺术品背后的故事，<br>
+                        去感受那些建筑承载的历史。
+                    </p>
+                    <p style="margin-top: 1.5rem; font-size: 1.3rem; color: var(--color-accent);">
+                        <strong>因为巴黎值得你不只是路过，而是走进。</strong>
+                    </p>
+                    <p style="margin-top: 2rem; color: var(--color-accent);">
+                        Bon voyage！祝旅途愉快！ 🇫🇷
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p class="footer-text">
+            <span class="footer-heart">❤</span> 巴黎景点完全攻略
+        </p>
+        <p class="footer-year">资料来源：18个巴黎旅游视频深度解析 + 补充资料 | 2026年4月</p>
+    </footer>
+
+    <script>
+        // Scroll Animation Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -30px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.style.background = 'rgba(10, 9, 8, 0.95)';
+            } else {
+                nav.style.background = 'rgba(10, 9, 8, 0.92)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
